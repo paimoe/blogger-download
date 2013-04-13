@@ -1,7 +1,7 @@
-blogger-download
+Blogger Post and Comments download
 ================
 
-Couple of scripts to download Blogger posts and add to the database, as well as comments
+Couple of scripts to download Blogger posts and add to the database, as well as comments. It was made because the Blogger XML dump was pretty unusable, and the RSS/atom feeds had a limit to the results.
 
 REALLY hacked together:
 
@@ -17,6 +17,19 @@ Comments
 --------
 Downloads comments, tries to fix up the times to UTC
 
+Running
+--------
+    $ python download.py
+    $ python raw_posts.py
+    
+    $ cd comments
+    $ python download.py
+    $ python parse.py
+    
+Should fill up a bunch of .sql files to import to MySQL.
+
+AKA not very useful in its current state.
+
 What it did
 --------
-Looped through all months between 2006 and Sept-ish 2011. Downloaded all posts, extracted the first image, and inserted the image into posts\_media table and the post content into the posts table.
+Looped through all months between 2006 and Sept-ish 2011. Downloaded all posts, extracted the first image, and compiled an sql insert statement: the image went to `posts_media` and post content into `posts`
